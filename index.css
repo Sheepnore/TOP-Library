@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body{
+  height: 100vh;
+  background-color: rgb(189, 189, 189);
+  display: grid;
+  place-content: center;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr; 
+  padding-left: 2rem;
+  padding-top: 2rem;
+  background-color: #fff;
+  margin: auto;
+  width: 40vw;
+  height: 40vw;
+}
+
+
+.container dialog{
+  position: absolute;
+  top: 40%;
+  left: 30%; 
+
+  width: 30%;
+}
+
+dialog{
+  border: none;
+  border-radius: 12px;
+  box-shadow: 1px 1px 5px gray;
+}
+
+form div label{
+  display: inline-block;
+  width: 40%
+}
+form div input{
+  width: 60%;
+}
+form button{
+  margin-top: 2rem;
+  margin-right: 1rem;
+  padding: .5rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 1px 1px 5px gray;
+  background-color: #fff;
+  width: 100px;
+}
+
+#bookDialog{
+  padding: 2rem;
+}
