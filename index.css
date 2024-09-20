@@ -43,6 +43,12 @@ body{
 .container ul{
   display: grid;
   grid-template-rows: repeat(autofit, 2rem)
+};
+
+.remove{
+  border: none;
+  background-color: red;
+  padding: 1rem;
 }
 
 .container .showBookDialogButton{
