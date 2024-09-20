@@ -6,6 +6,7 @@ function renderPage(){
   const addBookToListButton = document.querySelector('.addToList'); 
   const ulElement = document.querySelector('ul');
   let ulHtml = ulElement.innerHTML;
+  let readToggle = false;
 
   let bookLibrary = [
     {bookName: 'book1',
@@ -71,10 +72,11 @@ function renderPage(){
       }
       }
 
+      
+
       if (e.target.classList.contains('readStatus')){
-        console.log(e.target);
         const readStatusButtonId = e.target.dataset.readbuttonid;
-        // const bookItem = document.querySelector(`li[data-readButtonId='${readStatusButtonId}']`);
+        const bookItem = e.target;
         const book = bookLibrary.findIndex(obj => obj.id === readStatusButtonId);
         console.log(book);
         if (bookLibrary[book].readStatus === 'unread'){
@@ -84,7 +86,18 @@ function renderPage(){
           bookLibrary[book].readStatus = 'unread';
         }
         console.log(bookLibrary);
-      }
+
+        if (!readToggle){
+          bookItem.style.color = 'green'
+          readToggle = true;
+        }
+        else{
+          bookItem.style.color = 'white'
+          readToggle = false;
+        }
+      };
+
+
     })
   };
 

@@ -1,121 +1,138 @@
-*{
+/* Reset styles */
+* {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  box-sizing: border-box;
 }
 
-body{
+body {
   height: 100vh;
   background-color: rgb(189, 189, 189);
   display: grid;
   place-content: center;
+  font-family: Arial, sans-serif;
 }
 
-.bookDisplay{
+/* Book Display */
+.bookDisplay {
   display: grid;
   padding: 2rem;
   background-color: #fff;
-  margin: auto;
-  gap: 1rem;
-
   width: 40vw;
   height: 30vw;
-
-
-  box-shadow: 1px 1px 10px gray;
+  gap: 1rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-
-.bookDisplay dialog{
-  position: absolute;
-  top: 40%;
-  left: 32%; 
-
-  width: 30%;
-}
-
-.container{
+.bookDisplay .container {
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
 }
 
-.container ul{
+.bookDisplay .container ul {
   display: grid;
-  grid-template-rows: repeat(autofit, 2rem)
-};
-
-.remove{
-  border: none;
-  background-color: red;
-  padding: 1rem;
+  grid-auto-rows: minmax(2rem, auto);
+  overflow-y: auto;
 }
 
-.container .showBookDialogButton{
+/* Button Styles */
+.bookDisplay .container .showBookDialogButton {
   width: 7rem;
-  height:2.5rem;
+  height: 2.5rem;
   background: transparent;
   border: 2px solid rgb(59, 127, 51);
   border-radius: 10px;
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   justify-self: end;
   cursor: pointer;
-  transition: .3s;
+  transition: transform 0.3s ease;
 }
 
-.container .showBookDialogButton:hover{
-  transform: translate(0,-50%);
-  transition: .5s;
+.bookDisplay .container .showBookDialogButton:hover {
+  transform: translateY(-5px);
 }
 
-dialog{
+.readStatus{
+  border: none;
+  background-color: grey;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+};
+
+
+
+
+/* Dialog Styles */
+.bookDisplay dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
   border: none;
   border-radius: 12px;
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
 }
 
-form div label{
+/* Form Styles */
+form div {
+  margin-bottom: 1rem;
+}
+
+form div label {
   display: inline-block;
-  width: 40%
-}
-form div input{
-  width: 60%;
+  width: 40%;
 }
 
-form button{
+form div input {
+  width: 60%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
   margin-top: 2rem;
   margin-right: 1rem;
-  padding: .8rem;
+  padding: 0.8rem;
   border: none;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   width: 100px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-form .addToList{
+form .addToList {
   background-color: rgb(80, 97, 35);
-  transition: .3s;
   color: #fff;
 }
-form .addToList:hover{
-  background-color: rgb(80, 97, 35,0.5);
-  transition: .5s;
-  color:black
-}
 
-form .closeDialogButton{
-  background-color: rgba(143, 43, 43);
-  transition: .3s;
+form .addToList:hover {
+  background-color: rgba(80, 97, 35, 0.8);
   color: #fff;
 }
-form .closeDialogButton:hover{
-  background-color: rgba(143, 43, 43, 0.5);
-  transition: .5s;
-  color: black;
+
+form .closeDialogButton {
+  background-color: rgb(143, 43, 43);
+  color: #fff;
 }
 
-
-#bookDialog{
-  padding: 2rem;
+form .closeDialogButton:hover {
+  background-color: rgba(143, 43, 43, 0.8);
+  color: #fff;
 }
